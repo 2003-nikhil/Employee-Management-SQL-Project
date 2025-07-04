@@ -6,171 +6,82 @@ A complete SQL case study on an employee management system. Covers table creatio
 📌 Project Overview
 This project simulates an Employee Management System using SQL. It includes the creation and querying of relational database tables: EMPLOYEE, DEPARTMENT, JOB, and LOCATION. The project is designed to test and improve SQL skills across various domains, including data retrieval, filtering, grouping, subqueries, joins, and conditional logic.
 
-🗃️ Database Schema
-1. LOCATION Table
-Column Name	Data Type	Description
-Location_ID	INT (PK)	Unique location ID
-City	VARCHAR	Name of the city
-
-2. DEPARTMENT Table
-Column Name	Data Type	Description
-Department_ID	INT (PK)	Unique department ID
-Name	VARCHAR	Department name
-Location_ID	INT (FK)	Linked to LOCATION table
-
-3. JOB Table
-Column Name	Data Type	Description
-Job_ID	INT (PK)	Unique job ID
-Designation	VARCHAR	Job title
-
-4. EMPLOYEE Table
-Column Name	Data Type	Description
-Employee_ID	INT (PK)	Employee ID
-Last_Name	VARCHAR	Employee's last name
-First_Name	VARCHAR	First name
-Middle_Name	VARCHAR	Middle name
-Job_ID	INT (FK)	Reference to JOB table
-Hire_Date	DATE	Hiring date
-Salary	FLOAT	Monthly salary
-Comm	FLOAT	Commission
-Department_ID	INT (FK)	Reference to DEPARTMENT
-
 ✅ SQL Tasks & Features
-🔹 Basic Queries
-Retrieve all records from employee, department, job, and location tables.
-
-Use SELECT, column aliases, and calculated columns (e.g., annual salary).
-
-🔹 WHERE Clauses
-Filter employees based on salary, department, names, patterns, etc.
-
-🔹 ORDER BY
-Sort employee data by ID, name, salary, department, and combinations.
-
-🔹 GROUP BY & HAVING
-Department-wise and job-wise aggregation (MAX, MIN, AVG).
-
-Monthly/Yearly employee join statistics.
-
-Filtering grouped results (e.g., departments with ≥4 employees).
-
-🔹 JOINs
-Combine employee data with departments, jobs, and locations.
-
-Retrieve employees by department name or location (e.g., Dallas, Boston).
-
-🔹 Conditional Statements
-Add salary grades using CASE.
-
-Grade-wise employee count and filters.
-
-🔹 Subqueries
-Maximum/second highest salary.
-
-Average salary per department comparison.
-
-Check for departments with no employees.
-
-🔹 Update and Delete
-Salary updates (e.g., 10% hike for clerks).
-
-Delete operations based on job/department conditions.👨‍💼 Employee Management – SQL Project
-📌 Project Overview
-This project simulates an Employee Management System using SQL. It includes the creation and querying of relational database tables: EMPLOYEE, DEPARTMENT, JOB, and LOCATION. The project is designed to test and improve SQL skills across various domains, including data retrieval, filtering, grouping, subqueries, joins, and conditional logic.
-
-
-✅ SQL Tasks & Features
-🔹 Basic Queries
-Retrieve all records from employee, department, job, and location tables.
-
-Use SELECT, column aliases, and calculated columns (e.g., annual salary).
-
-🔹 WHERE Clauses
-Filter employees based on salary, department, names, patterns, etc.
-
-🔹 ORDER BY
-Sort employee data by ID, name, salary, department, and combinations.
-
-🔹 GROUP BY & HAVING
-Department-wise and job-wise aggregation (MAX, MIN, AVG).
-
-Monthly/Yearly employee join statistics.
-
-Filtering grouped results (e.g., departments with ≥4 employees).
-
-🔹 JOINs
-Combine employee data with departments, jobs, and locations.
-
-Retrieve employees by department name or location (e.g., Dallas, Boston).
-
-🔹 Conditional Statements
-Add salary grades using CASE.
-
-Grade-wise employee count and filters.
-
-🔹 Subqueries
-Maximum/second highest salary.
-
-Average salary per department comparison.
-
-Check for departments with no employees.
-
-🔹 Update and Delete
-Salary updates (e.g., 10% hike for clerks).
-
-Delete operations based on job/department conditions.
-
-📂 Folder Structure
-pgsql
-Copy
-Edit
-📁 Employee-Management-SQL-Project/
-├── 📄 README.md
-├── 📁 SQL_Scripts/
-│   ├── 01_create_tables.sql
-│   ├── 02_insert_data.sql
-│   ├── 03_simple_queries.sql
-│   ├── 04_where_clause.sql
-│   ├── 05_order_by_clause.sql
-│   ├── 06_group_by_having.sql
-│   ├── 07_joins.sql
-│   ├── 08_conditional_statements.sql
-│   ├── 09_subqueries.sql
-💡 Sample Highlights
-sql
-Copy
-Edit
--- Example: Get full employee details with department name
-SELECT e.Employee_ID, e.First_Name, e.Last_Name, d.Name AS Department
-FROM EMPLOYEE e
-JOIN DEPARTMENT d ON e.Department_ID = d.Department_ID;
-
--- Example: Add salary grade using CASE
-SELECT Employee_ID, First_Name,
-  CASE 
-    WHEN Salary >= 5000 THEN 'A'
-    WHEN Salary >= 3000 THEN 'B'
-    ELSE 'C'
-  END AS Salary_Grade
-FROM EMPLOYEE;
-🧪 How to Use
-Set up a relational database (MySQL, PostgreSQL, etc.).
-
-Run 01_create_tables.sql to create all four tables.
-
-Use 02_insert_data.sql to populate them.
-
-Execute the categorized .sql files to run and explore each type of query.
-
-🧠 Skills You Will Learn
-Relational database design
-
-SQL DDL and DML
-
-Aggregation and filtering
-
-Joining multiple tables
-
-Subqueries and nested logic
-
-Real-world business analysis in SQL
+Simple Queries:
+1. List all the employee details.
+2. List all the department details.
+3. List all job details.
+4. List all the locations.
+5. List out the First Name, Last Name, Salary, Commission for all Employees.
+6. List out the Employee ID, Last Name, Department ID for all employees and
+alias
+Employee ID as "ID of the Employee", Last Name as "Name of the
+Employee", Department ID as "Dep_id".
+7. List out the annual salary of the employees with their names only.
+WHERE Condition:
+1. List the details about "Smith".
+2. List out the employees who are working in department 20.
+3. List out the employees who are earning salary between 2000 and 3000.
+4. List out the employees who are working in department 10 or 20.
+5. Find out the employees who are not working in department 10 or 30.
+6. List out the employees whose name starts with 'L'.
+7. List out the employees whose name starts with 'L' and ends with 'E'.
+8. List out the employees whose name length is 4 and start with 'J'.
+9. List out the employees who are working in department 30 and draw the
+salaries more than 2500.
+10. List out the employees who are not receiving commission.
+ORDER BY Clause:
+1. List out the Employee ID and Last Name in ascending order based on the
+Employee ID.
+2. List out the Employee ID and Name in descending order based on salary.
+3. List out the employee details according to their Last Name in ascending-order.
+4. List out the employee details according to their Last Name in ascending
+order and then Department ID in descending order.
+GROUP BY and HAVING Clause:
+1. List out the department wise maximum salary, minimum salary and
+average salary of the employees.
+2. List out the job wise maximum salary, minimum salary and average
+salary of the employees.
+3. List out the number of employees who joined each month in ascending order.
+4. List out the number of employees for each month and year in
+ascending order based on the year and month.
+5. List out the Department ID having at least four employees.
+6. How many employees joined in February month.
+7. How many employees joined in May or June month.
+8. How many employees joined in 1985?
+9. How many employees joined each month in 1985?
+10. How many employees were joined in April 1985?
+11. Which is the Department ID having greater than or equal to 3 employees
+joining in April 1985?
+Joins:
+1. List out employees with their department names.
+2. Display employees with their designations.
+3. Display the employees with their department names and city.
+4. How many employees are working in different departments? Display with
+department names.
+5. How many employees are working in the sales department?
+6. Which is the department having greater than or equal to 3
+employees and display the department names in
+ascending order.
+7. How many employees are working in 'Dallas'?
+8. Display all employees in sales or operation departments.
+CONDITIONAL STATEMENT
+1. Display the employee details with salary grades. Use conditional statement to
+create a grade column.
+2. List out the number of employees grade wise. Use conditional statement to
+create a grade column.
+3. Display the employee salary grades and the number of employees between
+2000 to 5000 range of salary.
+Subqueries:
+1. Display the employees list who got the maximum salary.
+2. Display the employees who are working in the sales department.
+3. Display the employees who are working as 'Clerk'.
+4. Display the list of employees who are living in 'Boston'.
+5. Find out the number of employees working in the sales department.
+6. Update the salaries of employees who are working as clerks on the basis of
+10%.
+7. Display the second highest salary drawing employee details.
+8. List out the employees who earn more than every employee in department 30.
+9. Find out which department has no employees.
+10. Find out the employees who earn greater than the average salary for
+their department.
